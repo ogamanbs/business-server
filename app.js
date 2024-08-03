@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', homeRoute);
-app.use('/owner', ownertRoute);
+app.use('/owner', ownerRoute);
 app.use('/products', productsRoute);
 
 app.use((req, res, next) => {
