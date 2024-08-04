@@ -20,13 +20,16 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.2",
     "morgan": "^1.10.0",
-    "serverless-http": "^3.2.0"
+    "serve-favicon": "^2.5.0",
+    "serverless-http": "^3.2.0",
+    "vercel": "^35.2.3"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
     "@types/debug": "^4.1.12",
     "@types/jsonwebtoken": "^9.0.6",
-    "@types/morgan": "^1.9.9"
+    "@types/morgan": "^1.9.9",
+    "@types/serve-favicon": "^2.5.7"
   }
 }

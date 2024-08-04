@@ -1,14 +1,26 @@
 {
     "version": 2,
-    "builds": [{
-            "src": "bin/www.js",
-            "use": "@vercel/node",
-            "config": {
-                "includeFiles": ["config/**", "routes/**", "views/**", "public/**"]
-            }
-    }],
-    "routes": [{
+    "builds": [
+      {
+        "src": "bin/www.js",
+        "use": "@vercel/node",
+        "config": {
+          "includeFiles": [
+            "config/**",
+            "controllers/**",
+            "models/**",
+            "routes/**",
+            "views/**",
+            "public/**"
+          ]
+        }
+      }
+    ],
+    "routes": [
+      {
         "src": "/(.*)",
         "dest": "bin/www.js"
-    }]
-}
+      }
+    ]
+  }
+  
