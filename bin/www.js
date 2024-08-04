@@ -53,4 +53,4 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-module.exports = serverless(app);
+module.exports.handler = serverless(app);
