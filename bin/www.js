@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-var app = require('../app');
+const app = require('../app');
+const serverless = require('serverless-http');
 let debug = require('debug')('project:server');
 let http = require('http');
 
@@ -51,3 +52,5 @@ const onListening = () => {
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+module.exports = serverless(app);

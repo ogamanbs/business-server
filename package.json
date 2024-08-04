@@ -4,7 +4,7 @@
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www"
+    "start": "node bin/www.js"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,8 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
