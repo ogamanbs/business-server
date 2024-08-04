@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const app = require('../app');
-const serverless = require('serverless-http');
 let debug = require('debug')('project:server');
 let http = require('http');
 
