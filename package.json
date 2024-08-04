@@ -6,6 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node bin/www.js"
   },
+  "engines":{
+    "ndoe": "20.14.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
