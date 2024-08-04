@@ -4,7 +4,7 @@ const app = express();
 const favicon = require('serve-favicon');
 const cors = require('cors');
 const logger = require('morgan');
-const createError = require('http-errors');
+const createError = require('http-errors')
 
 const homeRoute = require('./routes/homeRoute');
 const ownerRoute = require('./routes/ownerRoute');

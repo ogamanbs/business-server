@@ -3,7 +3,7 @@ const router = express.Router();
 const { create, login } = require('../controllers/ownerAuthController');
 
 router.get('/', (req, res, next) => {
-    res.render('owner');
+    res.status(200).send('owner');
 });
 
 router.post('/create', create);
