@@ -7,7 +7,7 @@
     "start": "node bin/www.js"
   },
   "engines":{
-    "ndoe": "20.14.0"
+    "node": "20.14.0"
   },
   "keywords": [],
   "author": "",
