@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(cors({
-    origin: "https://bitem-business.vercel.app",
+    origin: "https://bitem-business.vercel.app/",
     methods: "POST, GET",
     preflightContinue: false,
     optionsSuccessStatus: 204
