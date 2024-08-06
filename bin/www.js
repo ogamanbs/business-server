@@ -2,8 +2,7 @@
 
 const app = require('../app');
 let debug = require('debug')('project:server');
-let https = require('https');
-const fs = require('fs');
+let http = require('http');
 
 let normalizePort = (val) => {
     const port = parseInt(val, 10);
@@ -21,12 +20,7 @@ let normalizePort = (val) => {
 let port = normalizePort(process.env.PORT || 8000);
 app.set('port', port);
 
-const options = {
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.cert'),
-};
-
-const server = https.createServer(options, app);
+const server = http.createServer(app);
 
 const onError = (error) => {
     if (error.syscall !== 'listen') {
