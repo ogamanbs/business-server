@@ -1,15 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const { create } = require('../controllers/productController');
+const { create, all } = require('../controllers/productController');
 
 router.get('/', (req, res, next) => {
     res.status(200).send('products');
 });
 
-// router.get('/all', (req, res, next) => {
+router.get('/all', all);
 
-// });
-
-router.post('/', create);
+router.post('/create', create);
 
 module.exports = router;
