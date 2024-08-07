@@ -32,6 +32,10 @@ module.exports.create = async (req, res, next) => {
 }
 
 module.exports.all = async (req, res, next) => {
+        const { email } = req.body;
         const products = await ProductModel.find().populate('owner');
-        res.status(200).json({products: products, message: 'successfully fetched'});
+        const allProducts = products.filter((product) => {
+            return product.owner.email === email;
+        });
+        res.status(200).json({products: allProducts, message: 'successfully fetched'});
 }

@@ -6,7 +6,7 @@ router.get('/', (req, res, next) => {
     res.status(200).send('products');
 });
 
-router.get('/all', all);
+router.post('/all', all);
 
 router.post('/create', create);
 
