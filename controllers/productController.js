@@ -33,5 +33,5 @@ module.exports.create = async (req, res, next) => {
 
 module.exports.all = async (req, res, next) => {
         const products = await ProductModel.find().populate('owner');
-        res.status(200).json({products: products});
+        res.status(200).json({products: products, message: 'successfully fetched'});
 }
