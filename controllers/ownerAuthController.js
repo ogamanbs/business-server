@@ -50,3 +50,13 @@ module.exports.login = async (req, res, next) => {
         res.status(401).json({message: 'owner not found'});
     }
 }
+
+module.exports.getOwner = async (req, res, next) => {
+    const {email} = req.body;
+    const owner = await ownerModel.findOne({email: email});
+    if(!owner) {
+        res.status(401).json({message: "failed to fetch owner"});
+    } else {
+        res.status(200).json({owner: owner, message: "successfully fetched owner"});
+    }
+}
