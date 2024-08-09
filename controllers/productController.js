@@ -16,7 +16,7 @@ module.exports.create = async (req, res, next) => {
             owner: owner._id
         });
         if(createdProduct) {
-            if(owner.products.indexOf(createdProduct._id) === -1) {
+            if(owner.products.indexOf(createdProduct.name) === -1) {
                 owner.products.push(createdProduct._id);
                 await owner.save();
                 res.status(200).json({message: `${name} successfully created`});
