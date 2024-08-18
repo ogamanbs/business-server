@@ -18,8 +18,8 @@ module.exports.create = async (req, res, next) => {
             price,
             discount,
             bgcolor,
-            panelColor,
-            textColor,
+            panelcolor: panelColor,
+            textcolor: textColor,
             owner: id
         });
         if(createdProduct) {
