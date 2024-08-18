@@ -41,7 +41,7 @@ module.exports.login = async (req, res, next) => {
     if(owner) {
         bcrypt.compare(password, owner.password, (err, result) => {
             if(result) {
-                res.status(200).json({message: 'successfully verified owner', owner: owner});
+                res.status(200).json({message: 'successfully verified owner', id: owner._id});
             } else {
                 res.status(401).json({message: 'owner not found'});
             }
@@ -52,8 +52,8 @@ module.exports.login = async (req, res, next) => {
 }
 
 module.exports.getOwner = async (req, res, next) => {
-    const {email} = req.body;
-    const owner = await ownerModel.findOne({email: email}).populate('products');
+    const {id} = req.body;
+    const owner = await ownerModel.findOne({_id: id}).populate('products');
     if(!owner) {
         res.status(401).json({message: "failed to fetch owner"});
     } else {
