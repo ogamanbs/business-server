@@ -41,7 +41,7 @@ module.exports.login = async (req, res, next) => {
     if(owner) {
         bcrypt.compare(password, owner.password, (err, result) => {
             if(result) {
-                res.status(200).json({message: 'successfully verified owner'});
+                res.status(200).json({message: 'successfully verified owner', owner: owner});
             } else {
                 res.status(401).json({message: 'owner not found'});
             }
