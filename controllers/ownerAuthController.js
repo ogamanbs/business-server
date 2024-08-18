@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
-
 const ownerModel = require('../models/owner-model');
+const productModel = require('../models/product-model');
 
 module.exports.create = async (req, res, next) => {
     const {name, email, password, image} = req.body;
@@ -37,7 +37,7 @@ module.exports.create = async (req, res, next) => {
 
 module.exports.login = async (req, res, next) => {
     const { email, password } = req.body;
-    const owner = await ownerModel.findOne({email});
+    const owner = await ownerModel.findOne({email}).populate('product');
     if(owner) {
         bcrypt.compare(password, owner.password, (err, result) => {
             if(result) {
