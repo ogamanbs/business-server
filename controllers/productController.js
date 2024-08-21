@@ -33,13 +33,3 @@ module.exports.create = async (req, res, next) => {
         res.status(401).json({message: 'product already exists in your store'});
     }
 }
-
-module.exports.all = async (req, res, next) => {
-        const { id } = req.body;
-        const owner = await OwnerModel.findOne({_id: id});
-        if(owner) {
-            res.status(200).json({products: owner.products, message: 'successfully fetched'});
-        } else {
-            res.send(400).json({products: [], message: 'unable to get products'});
-        }
-}
