@@ -35,10 +35,11 @@ module.exports.create = async (req, res, next) => {
 }
 
 module.exports.all = async (req, res, next) => {
-        const { email } = req.body;
-        const products = await ProductModel.find().populate('owner');
-        const allProducts = products.filter((product) => {
-            return product.owner.email === email;
-        });
-        res.status(200).json({products: allProducts, message: 'successfully fetched'});
+        const { id } = req.body;
+        const owner = await OwnerModel.findOne({_id: id});
+        if(owner) {
+            res.status(200).json({products: owner.products, message: 'successfully fetched'});
+        } else {
+            res.send(400).json({products: [], message: 'unable to get products'});
+        }
 }
