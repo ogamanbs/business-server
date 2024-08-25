@@ -52,7 +52,7 @@ module.exports.login = async (req, res, next) => {
 }
 
 module.exports.getOwner = async (req, res, next) => {
-    const {id} = req.body;
+    const { id } = req.body;
     const owner = await ownerModel.findOne({_id: id}).populate('products');
     if(!owner) {
         res.status(401).json({message: "failed to fetch owner"});
