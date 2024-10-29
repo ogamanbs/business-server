@@ -6,7 +6,19 @@ const ownerSchema = mongoose.Schema({
         minLength: 3,
         trim:true
     },
-    email: String,
+    email: {
+        type: String,
+        trim: true,
+    },
+    contact: {
+        type: Number,
+        validate: {
+            validator: function(v) {
+                return v.toString().length === 10;
+            },
+            message: props => `${props.value} is not a valid 10-digit number!`
+        },
+    },
     password: String,
     products: [
         {
