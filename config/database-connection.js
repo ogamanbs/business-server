@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const config = require('config');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -7,7 +6,7 @@ dotenv.config();
 async function connectToDatabase() {
     try {
         // Retrieve MongoDB URI from config
-        const mongodbUri = process.env.MONGODB_URI || config.get("MONGODB_URI");
+        const mongodbUri = process.env.MONGODB_URI;
         // Check if the URI is defined
         if (!mongodbUri) {
             throw new Error('MONGODB_URI is not defined in the configuration.');
@@ -16,7 +15,7 @@ async function connectToDatabase() {
         await mongoose.connect(mongodbUri);
         console.log('Connected to MongoDB');
     } catch (err) {
-        console.error('Failed to connect to MongoDB:', err.message);
+        console.error('Failed to connect to MongoDB:', err);
         process.exit(1); // Exit the process with failure
     }
 }
