@@ -1,4 +1,7 @@
+
+.env
+
 notes.txt
 node_modules
 .vercel
-.env
+.gitignore
