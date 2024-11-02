@@ -4,7 +4,6 @@ const OwnerModel = require('../models/owner-model');
 module.exports.create = async (req, res, next) => {
     try {
         const { images, name, price, discount, description, units, features, userId } = req.body;
-        console.log(images.length);
         const owner = await OwnerModel.findOne({_id:userId}).populate('products');
         let flag = 0;
         for(let i = 0; i<owner.products.length; i++) {
@@ -36,5 +35,15 @@ module.exports.create = async (req, res, next) => {
         }
     } catch(err) {
         res.status(401).json({message: 'error creating product'});
+    }
+}
+
+module.exports.getProducts = async (req, res, next) => {
+    const { id } = req.body;
+    const owner = await OwnerModel.findOne({_id: id}).populate('products');
+    if(!owner) {
+        res.status(401).json({message: "failed to fetch products", products: null});
+    } else {
+        res.status(200).json({products: owner.products, message: "successfully fetched owner"});
     }
 }

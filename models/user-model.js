@@ -57,6 +57,10 @@ const userSchema = new mongoose.Schema({
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'product',
             },
+            numberOfItems: {
+                type: Number,
+                default: 1
+            },
             isDelivered: {
                 type: Boolean,
                 default: false,
