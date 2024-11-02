@@ -42,6 +42,7 @@ module.exports.login = async (req, res, next) => {
         bcrypt.compare(password, owner.password, (err, result) => {
             if(result) {
                 res.status(200).json({message: 'successfully verified owner', owner: {
+                    _id: owner.id,
                     name: owner.name,
                     image: owner.image,
                     contact: owner.contact,
@@ -64,6 +65,7 @@ module.exports.getOwner = async (req, res, next) => {
         res.status(401).json({message: "failed to fetch owner"});
     } else {
         res.status(200).json({owner: {
+            _id: owner.id,
             name: owner.name,
             email: owner.email,
             contact: owner.contact,
@@ -81,6 +83,7 @@ module.exports.updateName = async (req, res, next) => {
     if(owner) {
         console.log(owner);
         res.status(200).json({message: "owner successfully name updated", owner: {
+            _id: owner.id,
             name: owner.name,
             image: owner.image,
             contact: owner.contact,
@@ -99,6 +102,7 @@ module.exports.updateEmail = async (req, res, next) => {
     const owner = await ownerModel.findOne({_id: id});
     if(owner) {
         res.status(200).json({message: "owner successfully email updated", owner: {
+            _id: owner.id,
             name: owner.name,
             image: owner.image,
             contact: owner.contact,
@@ -116,6 +120,7 @@ module.exports.updateContact = async (req, res, next) => {
     const owner = await ownerModel.findOne({_id: id});
     if(owner) {
         res.status(200).json({message: "owner successfully contact updated", owner: {
+            _id: owner.id,
             name: owner.name,
             image: owner.image,
             contact: owner.contact,
@@ -133,6 +138,7 @@ module.exports.updateImage = async (req, res, next) => {
     const owner = await ownerModel.findOne({_id: id});
     if(owner) {
         res.status(200).json({message: "owner successfully image updated", owner: {
+            _id: owner.id,
             name: owner.name,
             image: owner.image,
             contact: owner.contact,
@@ -158,6 +164,7 @@ module.exports.updatePassword = async (req, res, next) => {
                                 const updatedOwner = await ownerModel.findOne({_id: id});
                                 if(updatedOwner) {
                                     res.status(200).json({message: "owner password successfully updated", owner: {
+                                        _id: owner.id,
                                         name: updatedOwner.name,
                                         image: updatedOwner.image,
                                         contact: updatedOwner.contact,
